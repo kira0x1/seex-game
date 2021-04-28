@@ -9,7 +9,7 @@ namespace Kira
         private FaceManager _faceTop;
 
         public static CharacterManager Instance { get; private set; }
-        private static readonly int SpeedMultiplier = Animator.StringToHash("SpeedMultiplier");
+        private static readonly int SpeedMultiplier = Animator.StringToHash("Speed");
 
         private void Init()
         {
@@ -23,7 +23,8 @@ namespace Kira
                 Instance = this;
             }
 
-            _animator = GetComponent<Animator>();
+            _animator = transform.GetChild(0).GetComponent<Animator>();
+
             var faces = GetComponentsInChildren<FaceManager>();
             _faceBottom = faces[0];
             _faceTop = faces[1];

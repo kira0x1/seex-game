@@ -8,7 +8,7 @@ namespace Kira
         private SpriteRenderer _spriteRenderer;
         private Transform _transform;
         private Animator _animator;
-        private static readonly int SpeedMultiplier = Animator.StringToHash("SpeedMultiplier");
+        private static readonly int SpeedMultiplier = Animator.StringToHash("Speed");
 
         private void Awake()
         {

@@ -12,12 +12,10 @@ namespace Kira
         public delegate void OnSpeedChangeDelegate(float speed);
         public static OnSpeedChangeDelegate onSpeedChange;
 
-#if UNITY_EDITOR
-        private void OnValidate()
+        public void UpdateSpeed(float speed)
         {
-            _speedText.text = $"{_speedSlider.value:F1}";
+            UpdateSpeedText(speed);
         }
-#endif
 
         private void Start()
         {
@@ -28,6 +26,11 @@ namespace Kira
         private void OnSpeedChange(float speed)
         {
             onSpeedChange?.Invoke(speed);
+            UpdateSpeedText(speed);
+        }
+
+        private void UpdateSpeedText(float speed)
+        {
             _speedText.text = $"{speed:F1}";
         }
     }
